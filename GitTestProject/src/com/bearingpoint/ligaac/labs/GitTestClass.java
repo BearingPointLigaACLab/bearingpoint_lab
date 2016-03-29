@@ -1,3 +1,4 @@
+package com.bearingpoint.ligaac.labs;
 import javax.swing.JOptionPane;
 
 /**
