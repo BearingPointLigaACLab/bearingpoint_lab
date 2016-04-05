@@ -1,4 +1,4 @@
-package model;
+package main.java.com.bearingpoint.onlinebanking;
 
 public class XMLClusterFactory extends AbstractClusterFactory{
 

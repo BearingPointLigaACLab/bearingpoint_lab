@@ -1,4 +1,4 @@
-package model;
+package main.java.com.bearingpoint.onlinebanking;
 public abstract class AbstractClusterFactory {
 
 	/**

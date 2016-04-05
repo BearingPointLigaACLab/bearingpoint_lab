@@ -1,4 +1,4 @@
-package model;
+package main.java.com.bearingpoint.onlinebanking;
 
 public class Account implements UniquelyIdentifiable{
 
