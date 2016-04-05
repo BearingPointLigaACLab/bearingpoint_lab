@@ -1,57 +1,33 @@
 package model;
+
+import java.util.List;
+
 /**
- * An abstract representation of reporting objects (layers, modules, reports, etc.).
+ * An abstract representation of Legal Entities that use MyOnlineBanking.
  * 
  * @author corian.paun
  *
  */
-public interface LegalEntity {
+public interface LegalEntity extends UniquelyIdentifiable, Named{
 	
-	/**
-	 * Returns the ID of the LegalEntity.
-	 * 
-	 * @return
-	 */
-	public String getID();
+	public Cluster getCluster();
 	
-	/**
-	 * Sets the ID of the LegalEntity.
-	 * 
-	 * @return
-	 */
-	public void setID();
+	public void setCluster(Cluster cluster);
 	
-	
-	/**
-	 * Returns the name of the LegalEntity.
-	 * 
-	 * @return
-	 */
-	public String getName();
-
-	/**
-	 * Sets the name of the LegalEntity.
-	 * 
-	 * @param name
-	 */
-	public void setName(String name);
-
-	/**
-	 * Returns the parent of the LegalEntity.
-	 * 
-	 * @return
-	 */
 	public String getAddress();
 
-	/**
-	 * Sets the parent of the LegalEntity.
-	 * 
-	 * @param parent
-	 */
 	public void setAddress(String address);
-
+	
+	public List<Account> getAccounts();
+	
+	public void setAccounts(List<Account> account);
+	
+	public List<Transaction> getTransactions();
+	
+	public void setTransactions(List<Transaction> transactions);
+	
 	/**
-	 * Returns the LegalEntity in String format: <LegalEntityType>[<LegalEntityName>,<LegalEntityChildren>]
+	 * Returns the LegalEntity in String format: <LegalEntityType>[<LegalEntityID>:<LegalEntityName>,<LegalEntityChildren>]
 	 * 
 	 * @return
 	 */
