@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cluster id="cl_001" name="myCluster">
+	<legalEntities>
+		<individual id="u_001" name="Paun Corian" adresa="Timisoara, Timis, 89">
+			<accounts>
+				<account id="a_001" amount="5000" currency="RON" />
+				<account id="b_001" amount="10000" currency="EURO"/>
+				<account id="c_001" amount="250.550" currency="DOLLARS"/>
+				<account id="d_001" amount="145.253" currency="EURO"/>
+			</accounts>
+		</individual>
+		<individual id="u_002" name="Gaidos Cristian" adresa="Oradea, Bihor, 45">
+			<accounts>
+				<account id="a_002" amount="-5000" currency="RON" />
+				<account id="b_002" amount="-250.32" currency="RON" />
+				<account id="c_002" amount="12555.50" currency="RON"/>
+				<account id="d_002" amount="0" currency="RON"/>
+				
+			</accounts>
+		</individual>
+		<individual id="u_003" name="Mihut Andrei" adresa="Arad, Arad, 55">
+			<accounts>
+				<account id="a_003" amount="1000" currency="RON" />
+				<account id="b_003" amount="125.569" currency="EURO"/>
+			</accounts>
+		</individual>
+		<individual id="u_004" name="Panfilii Ion" adresa="Timisoara, Timis, 125">
+			<accounts>
+				<account id="a_004" amount="555.236" currency="RON" />
+				<account id="b_004" amount="125" currency="EURO"/>
+				<account id="c_004" amount="1000" currency="RON" />
+				<account id="d_004" amount="4528" currency="EURO"/>
+				<account id="e_004" amount="-250" currency="RON" />
+				<account id="f_004" amount="-100" currency="EURO"/>
+			</accounts>
+		</individual>
+		<individual id="u_005" name="Stoian Diana" adresa="Timisoara, Timis, 415">
+			<accounts>
+				<account id="a_005" amount="50895.25" currency="EURO"/>
+			</accounts>
+		</individual>
+	</legalEntities>
+	<transactions>
+			<transaction id="t_001" source="a_001" destination="a_003" date="01/01/2016" amount="200"/>
+			<transaction id="t_005" source="a_001" destination="b_001" date="01/01/2016" amount="200"/>
+			<transaction id="t_006" source="a_001" destination="c_001" date="01/01/2016" amount="200"/>
+			<transaction id="t_002" source="b_002" destination="b_004" date="02/02/2016" amount="150"/>
+			<transaction id="t_003" source="a_004" destination="f_004" date="03/03/2016" amount="125"/>
+			<transaction id="t_004" source="a_003" destination="b_001" date="05/04/2016" amount="42.50"/>
+	</transactions>
+</cluster>

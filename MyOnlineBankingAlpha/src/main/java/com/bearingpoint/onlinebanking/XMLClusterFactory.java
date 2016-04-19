@@ -1,7 +1,5 @@
 package com.bearingpoint.onlinebanking;
 import java.io.*;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.text.*;
 import java.util.*;
