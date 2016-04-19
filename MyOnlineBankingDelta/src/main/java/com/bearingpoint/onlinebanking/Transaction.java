@@ -5,10 +5,20 @@ import java.util.Date;
 
 public class Transaction implements UniquelyIdentifiable{
 
+	private String id;
 	private String source;
 	private String destination;
 	private Date date;
 	private double amount;
+	
+	public Transaction(String id, String source, String destination, Date date, double amount) {
+		this.id = id;
+		this.source = source;
+		this.destination = destination;
+		this.date = date;
+		this.amount = amount;
+	}
+
 	
 	public String getSource() {
 		return source;
@@ -42,14 +52,21 @@ public class Transaction implements UniquelyIdentifiable{
 		this.amount = amount;
 	}
 
+	@Override
 	public String getId() {
-		// TODO Auto-generated method stub
-		return null;
+		return id;
 	}
 
+	@Override
 	public void setId(String id) {
-		// TODO Auto-generated method stub
-		
+		this.id = id;
+	}
+	
+	/**
+	 * Returns the Transaction in String format: <TransactionId><TransactionSource><TransactionDestination><TransactionDate><TransactionAmount>
+	 */
+	public String getFormattedString() {
+		return "Transaction [ID - " + id + "; Source - " + source + "; Destination - " + destination + "; Date - " + date + "; Amount - " + amount + "]";
 	}
 
 }
