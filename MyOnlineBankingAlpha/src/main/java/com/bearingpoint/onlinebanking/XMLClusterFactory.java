@@ -1,5 +1,8 @@
 package com.bearingpoint.onlinebanking;
 import java.io.*;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.text.*;
 import java.util.*;
 import javax.xml.parsers.*;
@@ -11,7 +14,8 @@ public class XMLClusterFactory extends AbstractClusterFactory{
 	
 	public Cluster read(Object o) 
 	{
-		File file = ((File)o);
+		URL url = (URL)o;
+		File file = new File(url.getPath());
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		Cluster cluster = new Cluster();
 		LegalEntity om;
