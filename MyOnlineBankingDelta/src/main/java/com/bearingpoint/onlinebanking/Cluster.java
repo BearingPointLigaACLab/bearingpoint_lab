@@ -1,47 +1,53 @@
 package com.bearingpoint.onlinebanking;
 
-
 import java.util.List;
 
-public class Cluster implements Named, UniquelyIdentifiable{
+public class Cluster implements Named, UniquelyIdentifiable {
 
+	private String id;
+	private String name;
 	private List<LegalEntity> legalEntities;
 	
-	/**
-	 * Returns the Cluster in String format: <ClusterName>[<LegalEntityChildren>]
-	 * 
-	 * @return
-	 */
-	public String getFormattedString(){
-		// TODO IMPLEMENT
-		return null;
-	}
-
-
-
+	@Override
 	public String getId() {
-		// TODO Auto-generated method stub
-		return null;
+		return id;
 	}
 
-
-
+	@Override
 	public void setId(String id) {
-		// TODO Auto-generated method stub
-		
+		this.id = id;
 	}
 
-
-
+	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
+		return name;
 	}
 
-
-
+	@Override
 	public void setName(String name) {
-		// TODO Auto-generated method stub
-		
+		this.name = name;
 	}
+	
+	public List<LegalEntity> getLegalEntities() {
+		return legalEntities;
+	}
+
+	public void setLegalEntities(List<LegalEntity> legalEntities) {
+		this.legalEntities = legalEntities;
+	}
+
+	/**
+	 * Returns the Cluster in String format: <ClusterId><ClusterName>[<LegalEntityChildren>]
+	 */
+	public String getFormattedString() {
+		StringBuilder formattedString = new StringBuilder();
+		formattedString.append("Cluster [ID - " + id + " Name - " + name + "]\n\tLegal entities: ");
+
+		for (LegalEntity legEntity : legalEntities) {
+			formattedString.append(legEntity.getFormattedString());
+		}
+
+		return formattedString.toString();
+	}
+
 }
