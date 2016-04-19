@@ -1,6 +1,5 @@
 package com.bearingpoint.onlinebanking;
 
-
 import java.util.List;
 
 /**
@@ -26,6 +25,7 @@ public interface LegalEntity extends UniquelyIdentifiable, Named{
 	public List<Transaction> getTransactions();
 	
 	public void setTransactions(List<Transaction> transactions);
+	
 	
 	/**
 	 * Returns the LegalEntity in String format: <LegalEntityType>[<LegalEntityID>:<LegalEntityName>,<LegalEntityChildren>]

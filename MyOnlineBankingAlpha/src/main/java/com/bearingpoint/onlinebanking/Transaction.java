@@ -1,55 +1,59 @@
 package com.bearingpoint.onlinebanking;
 
-
 import java.util.Date;
 
 public class Transaction implements UniquelyIdentifiable{
 
+	private String ID;
 	private String source;
 	private String destination;
 	private Date date;
 	private double amount;
-	
-	public String getSource() {
+	public String getId() 
+	{
+		return this.ID;
+	}
+
+	public void setId(String id)
+	{
+		this.ID = id;	
+	}
+
+	public String getSource()
+	{
 		return source;
 	}
-
-	public void setSource(String source) {
+	public void setSource(String source)
+	{
 		this.source = source;
 	}
-
-	public String getDestination() {
+	public String getDestination() 
+	{
 		return destination;
 	}
-
-	public void setDestination(String destination) {
+	public void setDestination(String destination) 
+	{
 		this.destination = destination;
 	}
-
-	public Date getDate() {
+	public Date getDate() 
+	{
 		return date;
 	}
-
-	public void setDate(Date date) {
+	public void setDate(Date date) 
+	{
 		this.date = date;
 	}
-
-	public double getAmount() {
+	public double getAmount() 
+	{
 		return amount;
 	}
-
-	public void setAmount(double amount) {
+	public void setAmount(double amount) 
+	{
 		this.amount = amount;
 	}
-
-	public String getId() {
-		// TODO Auto-generated method stub
-		return null;
+	public String toString()
+	{
+		return  "Transaction ID: " + this.ID + "\nSource: " + this.source + "\nDestination: " + this.destination
+				+ "\nAmount: " + this.amount + "\nDate: " + this.date;
 	}
-
-	public void setId(String id) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

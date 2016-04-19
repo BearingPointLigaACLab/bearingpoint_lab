@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cluster id="cl_001" name="myCluster">
 	<legalEntities>
-		<individual id="u_001" name="Paun Corian">
+		<individual id="u_001" name="Paun Corian" adresa="Principala">
 			<accounts>
 				<account id="a_001" amount="5000" currency="RON" />
 			</accounts>
 		</individual>
-		<individual id="u_002" name="Gaidos Cristian">
+		<individual id="u_002" name="Gaidos Cristian" adresa="Principala2">
 			<accounts>
 				<account id="a_002" amount="-5000" currency="RON" />
 			</accounts>
 		</individual>
 	</legalEntities>
 	<transactions>
-			<transaction source="a_002" destination="a_001" date="01/04/2016" amount="5000"/>
+			<transaction id="tr_001" source="a_002" destination="a_001" date="01/04/2016" amount="5000"/>
 	</transactions>
 </cluster>

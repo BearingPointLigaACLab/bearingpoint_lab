@@ -1,6 +1,5 @@
 package com.bearingpoint.onlinebanking;
 
-
 public interface Named {
 
 	public String getName();
