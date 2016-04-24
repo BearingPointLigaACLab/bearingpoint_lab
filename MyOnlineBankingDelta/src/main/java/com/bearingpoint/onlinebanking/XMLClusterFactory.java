@@ -1,6 +1,7 @@
 package com.bearingpoint.onlinebanking;
 
 import java.io.File;
+import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -24,6 +25,9 @@ public class XMLClusterFactory extends AbstractClusterFactory {
 	@Override
 	public Cluster read(Object source) {
 
+		URL urlInput = (URL)source;
+		File inputFile = new File(urlInput.getPath());
+		
 		Cluster cluster = new Cluster();
 
 		List<LegalEntity> legalEntities = new ArrayList<>();;
@@ -36,7 +40,7 @@ public class XMLClusterFactory extends AbstractClusterFactory {
 
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 
-			Document doc = dBuilder.parse((File) source);
+			Document doc = dBuilder.parse(inputFile);
 
 			Element clusterElement = doc.getDocumentElement();
 
