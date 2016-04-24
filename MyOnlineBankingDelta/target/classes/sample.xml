@@ -13,6 +13,6 @@
 		</individual>
 	</legalEntities>
 	<transactions>
-			<transaction source="a_002" destination="a_001" date="01/04/2016" amount="5000"/>
+			<transaction id="tr_001" source="a_002" destination="a_001" date="01/04/2016" amount="5000"/>
 	</transactions>
 </cluster>
