@@ -5,10 +5,52 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html">
 <head>
-   <title>My Online Banking</title>
+<title>My Online Banking</title>
+<style>
+.inputTextStyle {
+	background-color: #B1E2F2;
+	width: 200px
+}
+
+.commmandButtonStyle {
+	background-color: #C0C9CC;
+	text-transform: capitalize;
+	text-align: justify;
+	color: #FFFFFF
+}
+</style>
 </head>
 
 <body>
-  TODO
+	<h1 style="color: blue; text-align: center;">Welcome to Online Banking Homepage!</h1>
+	<br />
+	<br />
+	<div align="center">
+		<fieldset
+			style="display: inline-block; border: 2px groove; border-color: blue; margin: auto">
+			<legend align="left" style="font-size: 20px;">LOGIN</legend>
+			<h:form>
+				<table align="center">
+
+					<tr>
+						<td><h:outputLabel value="Username" /></td>
+						<td><h:inputText styleClass="inputTextStyle" value="#{loginBean.username}" /></td>
+					</tr>
+
+					<tr>
+						<td><h:outputLabel value="Password" /></td>
+						<td><h:inputSecret styleClass="inputTextStyle" value="#{loginBean.password}" /></td>
+					</tr>
+
+				</table>
+				<br />
+				<div align="right">
+					<h:commandButton styleClass="commmandButtonStyle"
+						action="#{loginBean.login}" value="Login" />
+				</div>
+
+			</h:form>
+		</fieldset>
+	</div>
 </body>
 </html>
