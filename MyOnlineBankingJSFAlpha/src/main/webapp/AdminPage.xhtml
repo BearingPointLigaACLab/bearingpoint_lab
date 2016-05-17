@@ -35,7 +35,7 @@
          <div class="tab-content" style="border: 1px solid black; border-color: #CCCCFF">
             <br />
             <div id="users" class="tab-pane fade in active">
-                   <h:dataTable value="#{metoda}" styleClass = "table" headerClass="info">
+                  <h:dataTable value="#{metoda}" styleClass = "table" headerClass="info">
                   <h:column>
                   	<f:facet name="header">ID</f:facet>
                   	#{users.ID}
@@ -59,18 +59,15 @@
                <p>Select a Cluster XML file from your local file system:</p>
                <br />
                <h:form styleClass="form-signin">
-                  <table class="table">
-                     <tbody>
-                        <tr class="info">
-                           <td><input class="form-control" id="filepath" placeholder="File path" required="required"/></td>
-                           <td><input type="file" class="btn btn-primary"/></td>
-                        </tr>
-                        <tr class="info">
-                           <td><button type="submit" class="btn btn-primary">Import</button></td>
-                           <td></td>
-                        </tr>
-                     </tbody>
-                  </table>
+                  <h:dataTable styleClass = "table" headerClass="info" rowClasses="info" >
+                  <h:column>
+                  	<f:facet name="header"><h:inputText styleClass="form-control" id="filepath"  required="true" value="#{altceva}"/></f:facet>
+                  	<f:facet name="footer"><h:commandButton  styleClass="btn btn-primary" value="Import" action="#{undeva}"></h:commandButton></f:facet>
+                  </h:column>
+                  <h:column>
+                  		<f:facet name="header"><h:commandButton  styleClass="btn btn-primary" value="Browse" action="#{altundeva}"></h:commandButton></f:facet>
+                  </h:column>
+                  </h:dataTable>
                </h:form>
             </div>
          </div>
