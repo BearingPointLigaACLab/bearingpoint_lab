@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<head>
+   <title>Hello World 01</title>
+</head>
+
+<body>
+	#{helloWorld.message}
+	<br /><br />
+	#{helloWorld.getMessage_01()}
+	<br /><br/>
+	<h:form>
+   		<h:commandButton action="helloWorld_02" value="Go to Hello World 02 using Implicit Navigation" />
+   		<br /><br />
+   		<h:commandButton action="#{helloWorld.goToHelloWorld_02}" value="Go to Hello World 02 using Managed Bean" />
+   		<br /><br />
+   		<h:commandButton action="#{helloWorld.goToHelloWorld_02_Conditional}" value="Go to Hello World 02 using Conditions" />
+   		<br /><br />
+		<h:commandLink action="#{helloWorld.showPageById}" value="Go to HelloWorld_01">
+		<f:param name="pageId" value="1" />
+		</h:commandLink>
+		<br /><br />
+		<h:commandLink action="#{helloWorld.showPageById}" value="Go to HelloWorld_02">
+			<f:param name="pageId" value="2" />
+		</h:commandLink>
+		<br /><br />
+		<h:inputText value="#{helloWorld.inputText}" readonly="true" />
+		<br /><br />
+		<h:inputText value="#{helloWorld.inputText}" />
+		<h:commandButton value="Submit" action="user" /> 
+	</h:form>
+</body>
+</html>

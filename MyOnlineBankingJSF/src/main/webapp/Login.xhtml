@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	  xmlns:h="http://java.sun.com/jsf/html">
+   <h:head>
+      <title>Login Page</title>
+      <meta content="" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+     <!--  <h:outputStylesheet library="css" name="styles.css" />
+      <h:outputStylesheet library="css" name="bootstrap.min.css" /> -->
+      <link rel="stylesheet" href="resources/css/styles.css" />
+      <link rel="stylesheet" href="resources/css/back.css" />
+      <script src="Scripts/jquery.min.js" type="text/javascript" xml:space="preserve"></script><script
+         src="http/bootstrap.min.js"
+         type="text/javascript" xml:space="preserve"></script>
+         <style>
+			body {background-color:lightgrey;}
+			p {color : red;}
+		</style>
+   </h:head>
+   <body>
+      <div class="container" style="border: 1px solid black;border-color: #CCCCFF">
+         <div class="row">
+            <div class="col-sm-6 col-md-4 col-md-offset-4">
+               <h1 class="text-center login-title">Login</h1>
+               <div class="account-wall">
+                  <h:form styleClass="form-signin">
+                     Username:<h:inputText required="true" id="username" p:placeholder="supply value" styleClass="form-control" value="#{login.user}"/>
+                     <br />
+                     Password:<h:inputSecret required="true" id="password" styleClass="form-control" value="#{login.password}"/>
+                     <br/>
+                     <h:commandButton styleClass="btn btn-lg btn-primary btn-block" value="Log-in" action="#{login.verify}">
+                     </h:commandButton>
+                     <p>#{login.message}</p>
+                  </h:form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
