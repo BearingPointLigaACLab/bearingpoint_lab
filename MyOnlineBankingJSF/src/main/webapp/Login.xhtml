@@ -11,8 +11,6 @@
       <meta content="" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-     <!--  <h:outputStylesheet library="css" name="styles.css" />
-      <h:outputStylesheet library="css" name="bootstrap.min.css" /> -->
       <link rel="stylesheet" href="resources/css/styles.css" />
       <link rel="stylesheet" href="resources/css/back.css" />
       <script src="Scripts/jquery.min.js" type="text/javascript" xml:space="preserve"></script><script
@@ -34,7 +32,7 @@
                      <br />
                      Password:<h:inputSecret required="true" id="password" styleClass="form-control" value="#{login.password}"/>
                      <br/>
-                     <h:commandButton styleClass="btn btn-lg btn-primary btn-block" value="Log-in" action="#{login.verify}">
+                     <h:commandButton styleClass="btn btn-lg btn-primary btn-block" value="Log-in" action="#{login.getNextPage}">
                      </h:commandButton>
                      <p>#{login.message}</p>
                   </h:form>

@@ -35,22 +35,22 @@
          <div class="tab-content" style="border: 1px solid black; border-color: #CCCCFF">
             <br />
             <div id="users" class="tab-pane fade in active">
-                   <h:dataTable value="#{metoda}" styleClass = "table" headerClass="info">
+             	<h:dataTable value="#{adminPage.users}" var="user" styleClass = "table" headerClass="info">
                   <h:column>
                   	<f:facet name="header">ID</f:facet>
-                  	#{users.ID}
+                  	#{user.id}
                   </h:column>
                   <h:column>
                   	<f:facet name="header">Name</f:facet>
-                  	#{users.name}
+                  	#{user.name}
                   </h:column>
                   <h:column>
                   	<f:facet name="header">Cluster ID</f:facet>
-                  	#{users.clusterid}
+                  	#{user.clusterId}
                   </h:column>
                   <h:column>
                   	<f:facet name="header">Cluster Name</f:facet>
-                  	#{users.clustername}
+                  	#{user.clusterName}
                   </h:column>
                </h:dataTable> 
             </div>
@@ -62,11 +62,12 @@
                   <table class="table">
                      <tbody>
                         <tr class="info">
-                           <td><input class="form-control" id="filepath" placeholder="File path" required="required"/></td>
-                           <td><input type="file" class="btn btn-primary"/></td>
+                           <td>
+							TODO: ADD UPLOAD FILE COMPONENT 
+                           </td>
                         </tr>
                         <tr class="info">
-                           <td><button type="submit" class="btn btn-primary">Import</button></td>
+                           <td><h:commandButton type="submit" ajax="false" value="Import" action="#{adminPage.importUsers}" class="btn btn-primary" /></td>
                            <td></td>
                         </tr>
                      </tbody>
