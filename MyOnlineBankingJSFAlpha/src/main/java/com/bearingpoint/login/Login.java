@@ -42,6 +42,7 @@ public class Login
 	}
 	public String verify()
 	{
+		message=null;
 		if(user.equals("admin") && password.equals("admin"))
 		{
 			user=null;
@@ -58,10 +59,10 @@ public class Login
 		}
 		else
 		{
-			this.message = "Invalid email and/or password. Please try again.";
+			this.message = "Invalid username and/or password. Please try again.";
 			user = null;
 			password = null;
-			return "Login1";
+			return "Login";
 		}
 	}
 	

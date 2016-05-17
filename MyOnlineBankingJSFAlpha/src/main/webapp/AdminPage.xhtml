@@ -2,8 +2,11 @@
 <!DOCTYPE html
    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
-   <head>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	  xmlns:h="http://java.sun.com/jsf/html">
+   <h:head>
       <title>
          Admin Page
       </title>
@@ -15,7 +18,7 @@
          type="text/javascript" xml:space="preserve"></script><script
          src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
          type="text/javascript" xml:space="preserve"></script>
-   </head>
+   </h:head>
    <body>
       <div class="container">
          <h2>
@@ -32,30 +35,30 @@
          <div class="tab-content" style="border: 1px solid black; border-color: #CCCCFF">
             <br />
             <div id="users" class="tab-pane fade in active">
-               <table class="table">
-                  <thead>
-                     <tr class = "info">
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Cluster ID</th>
-                        <th>Cluster name</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <tr>
-                        <td>INDIVIDUAL_ID</td>
-                        <td>INDIVIDUAL_NAME</td>
-                        <td>CLUSTER_ID</td>
-                        <td>CLUSTER_NAME</td>
-                     </tr>
-                  </tbody>
-               </table>
+                   <h:dataTable value="#{metoda}" styleClass = "table" headerClass="info">
+                  <h:column>
+                  	<f:facet name="header">ID</f:facet>
+                  	#{users.ID}
+                  </h:column>
+                  <h:column>
+                  	<f:facet name="header">Name</f:facet>
+                  	#{users.name}
+                  </h:column>
+                  <h:column>
+                  	<f:facet name="header">Cluster ID</f:facet>
+                  	#{users.clusterid}
+                  </h:column>
+                  <h:column>
+                  	<f:facet name="header">Cluster Name</f:facet>
+                  	#{users.clustername}
+                  </h:column>
+               </h:dataTable> 
             </div>
             <br/>
             <div id="importusers" class="tab-pane fade">
                <p>Select a Cluster XML file from your local file system:</p>
                <br />
-               <form class="form-horizontal" action="">
+               <h:form styleClass="form-signin">
                   <table class="table">
                      <tbody>
                         <tr class="info">
@@ -68,7 +71,7 @@
                         </tr>
                      </tbody>
                   </table>
-               </form>
+               </h:form>
             </div>
          </div>
       </div>

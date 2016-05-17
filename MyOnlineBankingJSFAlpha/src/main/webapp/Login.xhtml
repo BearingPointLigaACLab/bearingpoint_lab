@@ -4,7 +4,7 @@
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	  xmlns:f="http://java.sun.com/jsf/core"
-	  xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	  xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
 	  xmlns:h="http://java.sun.com/jsf/html">
    <h:head>
       <title>Login Page</title>
@@ -20,7 +20,7 @@
          type="text/javascript" xml:space="preserve"></script>
          <style>
 			body {background-color:lightgrey;}
-
+			p {color : red;}
 		</style>
    </h:head>
    <body>
@@ -30,13 +30,13 @@
                <h1 class="text-center login-title">Login</h1>
                <div class="account-wall">
                   <h:form styleClass="form-signin">
-                     <h:inputText required="true" id="username" styleClass="form-control" value="#{login.user}"/>
+                     Username:<h:inputText required="true" id="username" p:placeholder="supply value" styleClass="form-control" value="#{login.user}"/>
                      <br />
-                     <h:inputText required="true" id="password" styleClass="form-control" value="#{login.password}"/>
+                     Password:<h:inputSecret required="true" id="password" styleClass="form-control" value="#{login.password}"/>
                      <br/>
                      <h:commandButton styleClass="btn btn-lg btn-primary btn-block" value="Log-in" action="#{login.verify}">
                      </h:commandButton>
-                     <p style="color: red;">#{login.message}</p>
+                     <p>#{login.message}</p>
                   </h:form>
                </div>
             </div>
