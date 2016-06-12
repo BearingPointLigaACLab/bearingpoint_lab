@@ -9,18 +9,30 @@
     <h:body>
         <h:form id="loginForm">
             <p:panel id="panellogin" header="Login">
- 				<h:panelGrid id="loginPanel" columns="2">
- 					 <h:outputText value="Username" />
- 					 <p:inputText id="username" value="#{loginBean.uname}" placeholder="Type your username" required="true"></p:inputText>
- 					 <p:spacer></p:spacer>
- 					 <p:message for="username" ></p:message>
- 					 <h:outputText value="Password" />
-					 <p:password id="password" value="#{loginBean.password}" placeholder="Type your password" required="true"></p:password>
-					 <p:spacer></p:spacer>
-					 <p:message for="password"></p:message>
- 				     <p:spacer></p:spacer>
-					 <p:commandButton action="#{loginBean.loginProject}" value="Login" id="loginbutton"></p:commandButton>			
- 				</h:panelGrid>
+ 				<p:panelGrid id="loginPanel">
+ 					<p:row>
+ 						<p:column>
+ 							<h:outputText value="Username:"></h:outputText>
+ 						</p:column>
+ 						<p:column>
+ 							<p:inputText id="username" value="#{login.user}" placeholder="Type your username" required="true"></p:inputText>
+					 	</p:column>
+					 </p:row>
+					 <p:row>
+ 						<p:column>
+ 							<h:outputText value="Password:"></h:outputText>
+ 						</p:column>
+ 						<p:column>
+ 							<p:password id="password" value="#{login.password}" placeholder="Type your password" required="true"></p:password>
+					 	</p:column>
+					 </p:row>
+					 <p:row>
+					 <p:column>
+					 	<h:commandButton action="#{login.changePage}" value="Login" id="loginbutton"></h:commandButton>
+ 					 </p:column>
+ 					 </p:row>
+ 				</p:panelGrid>
+ 				<p>#{login.message}</p>
  			</p:panel>
  		</h:form>
  	</h:body> 

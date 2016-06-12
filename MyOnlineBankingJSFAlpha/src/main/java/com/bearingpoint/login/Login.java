@@ -1,8 +1,6 @@
 package com.bearingpoint.login;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.*;
 @ManagedBean(name = "login" , eager = true)
 @RequestScoped
 public class Login 
@@ -40,31 +38,46 @@ public class Login
 	public void setMessage(String message){
 		this.message = message;
 	}
-	public String verify()
+
+	public String changePage()
 	{
+		String nextPage = "Login";
 		message=null;
-		if(user.equals("admin") && password.equals("admin"))
+		
+		if (isValidUser())
 		{
-			user=null;
-			password=null;
+			if (isAdminUser())
+			{
+				nextPage = "AdminPage";
+			} else
+			{
+				nextPage = "HomePage";
+			}
 			message = null;
-			return "AdminPage";
-		}
-		else if(user.equals("andrei.mihut95") && password.equals("123456"))
-		{
-			user=null;
-			password=null;
-			message=null;
-			return "HomePage";
-		}
-		else
+		} else
 		{
 			this.message = "Invalid username and/or password. Please try again.";
-			user = null;
-			password = null;
-			return "Login";
 		}
+		password = null;
+		return nextPage;
 	}
-	
+	private boolean isValidUser()
+	{
+		boolean isValid = false;
+		if(user.equals("admin") && password.equals("admin") || user.equals("andrei.mihut95") && password.equals("123456"))
+		{
+			isValid = true;
+		}
+		return isValid;
+	}
+	private boolean isAdminUser()
+	{
+		boolean isAdminUser = false;
+		if (user.equals("admin"))
+		{
+			isAdminUser = true;
+		}
+		return isAdminUser;
+	}
 	
 }
