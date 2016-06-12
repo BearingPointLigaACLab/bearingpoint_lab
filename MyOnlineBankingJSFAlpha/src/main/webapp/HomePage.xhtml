@@ -1,210 +1,129 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html
-   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
-<html xmlns="http://www.w3.org/1999/xhtml"
-	  xmlns:f="http://java.sun.com/jsf/core"
-	  xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
-	  xmlns:h="http://java.sun.com/jsf/html">
-   <h:head>
-      <title>
-         Home Page
-      </title>
-      <meta content="" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-      <script
-         src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"
-         type="text/javascript" xml:space="preserve"></script><script
-         src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-         type="text/javascript" xml:space="preserve"></script>
-   </h:head>
-   <body>
-      <div class="container">
-         <h2>
-            Home Page
-         </h2>
-         <ul class="nav nav-pills">
-            <li class="active">
-               <a data-toggle="pill" href="#general">General</a>
-            </li>
-            <li>
-               <a data-toggle="pill" href="#newtransaction">New Transaction</a>
-            </li>
-            <li>
-               <a data-toggle="pill" href="#transactionreport">Transaction Report</a>
-            </li>
-         </ul>
-         <div class="tab-content" style="border: 1px solid black;border-color: #CCCCFF">
-            <br />
-            <div id="general" class="tab-pane fade in active">
-               <h:dataTable styleClass="table" headerClass="info" value="#{listaconturi}">
-                  <h:column>
-                  	<f:facet name="header">Account</f:facet>
-                  	#{account}
-                  </h:column>
-                  <h:column>
-                  	<f:facet name="header">Total</f:facet>
-                  	#{amount}
-                  </h:column>
-                  <h:column>
-                  	#{currency}
-                  </h:column>
-                  <h:column>
-                  		<h:commandButton  styleClass="btn btn-primary" value="New Transaction" action="#{metodaafisarii}"></h:commandButton>
-                  </h:column>
-               </h:dataTable>
-            </div>
-            <div id="newtransaction" class="tab-pane fade">
-               <h5>
-                  <p>
-                     <b>New Transaction</b>>Confirmation
-                  </p>
-               </h5>
-               <br /> <br /> <br />
-               <h:form styleClass="form-horizontal">
-                  <div class="dropup">
-                     From account: <h:selectOneMenu value="#{whateever}">
-   								<f:selectItem itemValue="Tranzactie1" itemLabel="Tranzactie1" />
-   					     		<f:selectItem itemValue="Tranzactie2" itemLabel="Tranzactie2" />
-   								<f:selectItem itemValue="Tranzactie3" itemLabel="Tranzactie3" />
-   									</h:selectOneMenu> 
-                  				<!--  <h:selectOneMenu value="#{listatranzactii}">
-   									<f:selectItems value="#{blablabla}" />
-   								</h:selectOneMenu> -->
-                  </div>
-                  <br /> <br />
-                  <table class="table">
-                     <tbody>
-                        <tr class="info">
-                           <td>Total: </td>
-                           <td>SOURCE_ACCOUNT_AMOUNT#{SOURCE_ACCOUNT_AMOUNT}</td>
-                           <td>SOURCE_ACCOUNT_AMOUNT#{SOURCE_ACCOUNT_AMOUNT}</td>
-                        </tr>
-                        <tr class="info">
-                           <td>Amount</td>
-                           <td><h:inputText styleClass="form-control" id="transactionamount" required="true" value="#{habarnuam}"></h:inputText></td>
-                           <td>SOURCE_ACCOUNT_CURRENCY#{SOURCE_ACCOUNT_CURRENCY}</td>
-                        </tr>
-                        <tr class="info">
-                           <td>To account:</td>
-                           <td><h:inputText styleClass="form-control" id="transactiondestination" required="true" value="#{habarnuam}"></h:inputText></td>
-                           <td></td>
-                        </tr>
-                        <tr class="info">
-                           <td>Name:</td>
-                           <td><h:inputText styleClass="form-control" id="individualname" required="true" value="#{habarnuam}"></h:inputText></td>
-                           <td></td>
-                        </tr>
-                     </tbody>
-                  </table>
-                  <h:commandButton styleClass="btn btn-primary" style="margin-left:0.5cm" value="Submit" action="#{iarnuamhabar}"></h:commandButton>
-               </h:form>
-               <h5>
-                  <p><b>New Transaction</b>>Confirmation</p>
-               </h5>
-               <br /> <br /> <br />
-               <h:form styleClass="form-horizontal">
-                  <table class="table">
-                     <tbody>
-                        <tr class="info">
-                           <td>From account: </td>
-                           <td>TRANSACTION_SOURCE#{TRANSACTION_SOURCE}</td>
-                           <td></td>
-                        </tr>
-                        <tr class="info">
-                           <td>Total: </td>
-                           <td>SOURCE_ACCOUNT_AMOUNT#{SOURCE_ACCOUNT_AMOUNT}</td>
-                           <td>SOURCE_ACCOUNT_CURRENCY#{SOURCE_ACCOUNT_CURRENCY}</td>
-                        </tr>
-                        <tr class="info">
-                           <td>Amount: </td>
-                           <td>TRANSACTION_AMOUNT#{TRANSACTION_AMOUNT}</td>
-                           <td>TRANSACTION_CURRENCY#{TRANSACTION_CURRENCY}</td>
-                        </tr>
-                        <tr class="info">
-                           <td>To account: </td>
-                           <td>TRANSACTION_DESTINATION#{TRANSACTION_DESTINATION}</td>
-                           <td></td>
-                        </tr>
-                        <tr class="info">
-                           <td>Name: </td>
-                           <td>INDIVIDUAL_NAME#{INDIVIDUAL_NAME}</td>
-                           <td></td>
-                        </tr>
-                     </tbody>
-                  </table>
-                  <br/><br/>
-                  <p style="margin-left : 0.5cm">Is the entered information correct?</p>
-                  <h:commandButton class="btn btn-primary" style="margin-left:0.5cm;margin-bottom:0.5cm" value="Submit" action="#{ceva}"></h:commandButton>
-                  <h:commandButton class="btn btn-primary" style="margin-left:0.5cm;margin-bottom:0.5cm" value="Return" action="#{altceva}"></h:commandButton>
-               </h:form>
-            </div>
-		 <div id="transactionreport" class="tab-pane fade">
-              <p style="margin-left: 0.3 cm">Here you can find everything you need to know about your transactions in the last 24 months.</p>
-               <br />
-               <h:form styleClass="form-horizontal">
-                  <table class="table">
-                     <tbody>
-                        <tr class="info">
-                           <td>Account</td>
-                           <td>Period</td>
-                           <td></td>
-                        </tr>
-                        <tr class="info">
-                           <td>
-                              <h:selectOneMenu value="#{whateever}">
-   								<f:selectItem itemValue="Account1" itemLabel="Account1" />
-   					     		<f:selectItem itemValue="Account2" itemLabel="Account2" />
-   								<f:selectItem itemValue="Account3" itemLabel="Account3" />
-   									</h:selectOneMenu> 
-                  				<!--  <h:selectOneMenu value="#{listaaccount}">
-   									<f:selectItems value="#{blablabla}" />
-   								</h:selectOneMenu> -->
-                           </td>
-                           <td>
-                              <h:selectOneMenu value="#{whateever}">
-   								<f:selectItem itemValue="Period1" itemLabel="Period1" />
-   					     		<f:selectItem itemValue="Period2" itemLabel="Period2" />
-   								<f:selectItem itemValue="Period3" itemLabel="Period3" />
-   									</h:selectOneMenu> 
-                  				<!--  <h:selectOneMenu value="#{listaaccount}">
-   									<f:selectItems value="#{blablabla}" />
-   								</h:selectOneMenu> -->
-                           </td>
-                           <td>
-                              <h:commandButton  styleClass="btn btn-primary" value = "Submit" action="#{fasituceva}">
-                              </h:commandButton>
-                           </td>
-                        </tr>
-                     </tbody>
-                  </table>
-               </h:form>
-               <br />
-               <br />
-                 <h:dataTable styleClass="table" headerClass="#{info}" value="#{listaceofi}">
-                  <h:column>
-                  	<f:facet name="header">#{Date}</f:facet>
-                  	#{account}
-                  </h:column>
-                  <h:column>
-                  	<f:facet name="header">#{Fromto}</f:facet>
-                  	#{amount}
-                  </h:column>
-                  <h:column>
-                  	<f:facet name="header">#{DebitCredit}</f:facet>
-                  	#{debit}
-                  </h:column>
-                  <h:column>
-                  	<f:facet name="header">#{Interimbalance}</f:facet>
-                  	#{currency}
-                  </h:column>
-                  <h:column>
-                  		<h:commandButton  styleClass="btn btn-primary" value="New Transaction" action="#{metodaafisarii}"></h:commandButton>
-                  </h:column>
-              </h:dataTable>
-            </div>
-         </div>
-      </div>
-   </body>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+    	<h:outputStylesheet library="css" name="home.css" /> 
+        <title>Home Page</title>
+    </h:head>
+    <h:body> 
+    <h3>Welcome, #{username}</h3>
+    <p:tabView>
+        <p:tab title="General">
+        	<p:dataTable var="accounts" value="#{clasa.accounts}">
+        		<p:column headerText="Account">
+        			<h:outputText value="#{account.id}"></h:outputText>
+        		</p:column>
+        		<p:column headerText="Total">
+        			<h:outputText value="#{account.amount}"></h:outputText>
+        		</p:column>
+        		<p:column headerText="Currency">
+        			<h:outputText value="#{account.currency}"></h:outputText>
+        		</p:column>
+        		<p:column>
+        			<p:commandButton action="#{actiune}" value="New Transaction"></p:commandButton>
+        		</p:column>
+        	</p:dataTable>
+        </p:tab>
+        <p:tab title="New Transaction">
+        	<p><b>New Transaction</b>>Confirmation</p>
+        	<h:form>
+        		<p:panelGrid>
+        			<p:row>
+        				<p:column>
+	        				<h:outputText value="From account:"></h:outputText>
+	        			</p:column>
+	        			<p:column>
+	        				<p:selectOneMenu id="period" value="#{dropdownView.country}" style="width:300px">
+	                			<p:ajax listener="#{dropdownView.onCountryChange}" />
+	                			<f:selectItem itemLabel="Select Account" itemValue="" noSelectionOption="true" />
+	                			<f:selectItems value="#{dropdownView.countries}" />
+            				</p:selectOneMenu>
+	        			</p:column>
+            		</p:row>
+            		<p:row>
+            			<p:column>
+            				<h:outputText value="Total:"></h:outputText>
+            			</p:column>
+            			<p:column>
+            				<h:outputText value="O sa fieee ceva aici"></h:outputText>
+            				<p:spacer width="10" height="0"></p:spacer>
+            				<h:outputText value="cureeency"></h:outputText>
+            			</p:column>
+            		</p:row>
+            		<p:row>
+            			<p:column>
+            				<h:outputText value="Amount:"></h:outputText>
+            			</p:column>
+            			<p:column>
+            				<p:inputText id="transactionamount" required="true" placeholder="Transaction amount"></p:inputText>
+							<p:spacer width="10" height="0"></p:spacer>
+							<h:outputText value="Cureenyyyyyy"></h:outputText>            	
+            			</p:column>
+            		</p:row>
+            		<p:row>
+            			<p:column>
+            				<h:outputText value="To account:"></h:outputText>
+            			</p:column>
+            			<p:column>
+            				<p:inputText id="transactiondestination" required="true" placeholder="Transaction destination"></p:inputText>           	
+            			</p:column>
+            		</p:row>
+            		<p:row>
+            			<p:column>
+            				<h:outputText value="Name:"></h:outputText>
+            			</p:column>
+            			<p:column>
+            				<p:inputText id="name" required="true" placeholder="Individual name"></p:inputText>           	
+            			</p:column>
+            		</p:row>
+        		</p:panelGrid>
+        		<p:spacer height="50" width="0"></p:spacer>
+        		<p:commandButton action="#{loginBean.loginProject}" value="Submit" id="submitbutton"></p:commandButton>
+        	</h:form>
+        </p:tab>
+        <p:tab title="Transaction Report">
+        	<p>Here you can find everything you need to know about your transactions in the last 24 months</p>
+        	<p:panelGrid style="margin: auto; width: 60% ; padding: 10px;">
+        		<f:facet name="header">
+     				<p:row>
+        				<p:column>Acccount</p:column>
+        				<p:column>Period</p:column>
+        			</p:row>
+        		</f:facet>
+        		<p:row>
+        			<p:column>
+        				<p:selectOneMenu id="account" value="#{dropdownView.country}" style="width:300px">
+                			<p:ajax listener="#{dropdownView.onCountryChange}" />
+                			<f:selectItem itemLabel="Select Account" itemValue="" noSelectionOption="true" />
+                			<f:selectItems value="#{dropdownView.countries}" />
+            			</p:selectOneMenu>
+        			</p:column>
+        			<p:column>
+        				<p:selectOneMenu id="period" value="#{dropdownView.country}" style="width:300px">
+                			<p:ajax listener="#{dropdownView.onCountryChange}" />
+                			<f:selectItem itemLabel="Select Period" itemValue="" noSelectionOption="true" />
+                			<f:selectItems value="#{dropdownView.countries}" />
+            			</p:selectOneMenu>
+        			</p:column>
+        			<p:column>
+        				<p:commandButton action="#{loginBean.loginProject}" value="Submit" id="submitbutton"></p:commandButton>
+        			</p:column>
+        		</p:row>
+        	</p:panelGrid>
+        	<p:spacer width="100"></p:spacer>
+        	<p:dataTable var="transactions" value="#{lista.transactions}">
+ 				<p:column headerText="Date">
+ 				</p:column>
+ 				<p:column headerText="From/To">
+ 				</p:column>
+ 				<p:column headerText="Debit/Credit">
+ 				</p:column>
+ 				<p:column headerText="Interim balance">
+ 				</p:column>       	
+        	</p:dataTable>
+        </p:tab>
+    </p:tabView>
+    </h:body>
 </html>
