@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<title>Home Page</title>
+<meta content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"
+	type="text/javascript" xml:space="preserve"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+	type="text/javascript" xml:space="preserve"></script>
+</head>
+<body>
+	<div class="container">
+		<h2>Home Page</h2>
+		<ul class="nav nav-pills">
+			<li class="active"><a data-toggle="pill" href="#general">General</a>
+			</li>
+			<li><a data-toggle="pill" href="#newtransaction">New
+					Transaction</a></li>
+			<li><a data-toggle="pill" href="#transactionreport">Transaction
+					Report</a></li>
+		</ul>
+		<div class="tab-content"
+			style="border: 1px solid black; border-color: #CCCCFF">
+			<br />
+			<div id="general" class="tab-pane fade in active">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Account</th>
+							<th>Total</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="info">
+							<td>ACCOUNT_ID</td>
+							<td>ACCOUNT_AMOUNT</td>
+							<td>ACCOUNT_CURRENCY</td>
+							<td><button type="button" class="btn btn-primary">New
+									transaction</button></td>
+						</tr>
+						<tr class="info">
+							<td>ACCOUNT_ID</td>
+							<td>ACCOUNT_AMOUNT</td>
+							<td>ACCOUNT_CURRENCY</td>
+							<td><button type="button" class="btn btn-primary">New
+									transaction</button></td>
+						</tr>
+						<tr class="info">
+							<td>ACCOUNT_ID</td>
+							<td>ACCOUNT_AMOUNT</td>
+							<td>ACCOUNT_CURRENCY</td>
+							<td><button type="button" class="btn btn-primary">New
+									transaction</button></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div id="newtransaction" class="tab-pane fade">
+				<h5>
+					<p>
+						<b>New Transaction</b>>Confirmation
+					</p>
+				</h5>
+				<br /> <br /> <br />
+				<form class="form-horizontal" action="">
+					<div class="dropup">
+						From account:
+						<button class="btn btn-primary dropdown-toggle" type="button"
+							data-toggle="dropdown">
+							Lista transactii<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li><a href="#">Transactie a</a></li>
+							<li><a href="#">Transactie b</a></li>
+							<li><a href="#">Transactie c</a></li>
+						</ul>
+					</div>
+					<br /> <br />
+					<table class="table">
+						<tbody>
+							<tr class="info">
+								<td>Total:</td>
+								<td>SOURCE_ACCOUNT_AMOUNT</td>
+								<td>SOURCE_ACCOUNT_CURRENCY</td>
+							</tr>
+							<tr class="info">
+								<td>Amount</td>
+								<td><input class="form-control" id="transactionamount"
+									placeholder="Transaction amount" required="required" /></td>
+								<td>SOURCE_ACCOUNT_CURRENCY</td>
+							</tr>
+							<tr class="info">
+								<td>To account:</td>
+								<td><input class="form-control" id="transactiondestination"
+									placeholder="Transaction destination" required="required" /></td>
+								<td></td>
+							</tr>
+							<tr class="info">
+								<td>Name:</td>
+								<td><input class="form-control" id="individualname"
+									placeholder="Individual name" required="required" /></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+					<button type="submit" class="btn btn-primary"
+						style="margin-left: 0.5cm">Submit</button>
+				</form>
+				<h5>
+					<p>
+						<b>New Transaction</b>>Confirmation
+					</p>
+				</h5>
+				<br /> <br /> <br />
+				<form class="form-horizontal" action="">
+					<table class="table">
+						<tbody>
+							<tr class="info">
+								<td>From account:</td>
+								<td>TRANSACTION_SOURCE</td>
+								<td></td>
+							</tr>
+							<tr class="info">
+								<td>Total:</td>
+								<td>SOURCE_ACCOUNT_AMOUNT</td>
+								<td>SOURCE_ACCOUNT_CURRENCY</td>
+							</tr>
+							<tr class="info">
+								<td>Amount:</td>
+								<td>TRANSACTION_AMOUNT</td>
+								<td>TRANSACTION_CURRENCY</td>
+							</tr>
+							<tr class="info">
+								<td>To account:</td>
+								<td>TRANSACTION_DESTINATION</td>
+								<td></td>
+							</tr>
+							<tr class="info">
+								<td>Name:</td>
+								<td>INDIVIDUAL_NAME</td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+					<br /> <br />
+					<p style="margin-left: 0.5cm">Is the entered information
+						correct?</p>
+					<button type="submit" class="btn btn-primary"
+						style="margin-left: 0.5cm; margin-bottom: 0.5cm">Submit</button>
+					<button type="button" class="btn btn-primary"
+						style="margin-left: 0.5cm; margin-bottom: 0.5cm">Return</button>
+				</form>
+			</div>
+			<div id="transactionreport" class="tab-pane fade">
+				<p style="margin-left: 0.3 cm">Here you can find everything you
+					need to know about your transactions in the last 24 months.</p>
+				<br />
+				<form class="form-horizontal" action="">
+					<table class="table">
+						<tbody>
+							<tr class="info">
+								<td>Account</td>
+								<td>Period</td>
+								<td></td>
+							</tr>
+							<tr class="info">
+								<td>
+									<div class="dropdown">
+										<button class="btn btn-primary dropdown-toggle" type="button"
+											data-toggle="dropdown">
+											Account<span class="caret"></span>
+										</button>
+										<ul class="dropdown-menu">
+											<li><a href="#">TRANSACTION_SOURCE_A</a></li>
+											<li><a href="#">TRANSACTION_SOURCE_B</a></li>
+											<li><a href="#">TRANSACTION_SOURCE_C</a></li>
+										</ul>
+									</div>
+								</td>
+								<td>
+									<div class="dropdown">
+										<button class="btn btn-primary dropdown-toggle" type="button"
+											data-toggle="dropdown">
+											Perioad<span class="caret"></span>
+										</button>
+										<ul class="dropdown-menu">
+											<li><a href="#">Today</a></li>
+											<li><a href="#">Last three days</a></li>
+											<li><a href="#">Last week</a></li>
+											<li><a href="#">Last two weeks</a></li>
+											<li><a href="#">Last month</a></li>
+											<li><a href="#">Last two months</a></li>
+											<li><a href="#">Current week</a></li>
+											<li><a href="#">Current month</a></li>
+										</ul>
+									</div>
+								</td>
+								<td>
+									<button type="submit" class="btn btn-primary">Submit</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+				<br /> <br />
+				<table class="table">
+					<thead>
+						<tr class="info">
+							<td>Date</td>
+							<td>From/To</td>
+							<td>Debit/Credit</td>
+							<td>Interim balance</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>dd/mm/YYY</td>
+							<td>T_SOURCE/T_DESTINATION</td>
+							<td>AMOUNT</td>
+							<td>ACCOUNT_AMOUNT</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

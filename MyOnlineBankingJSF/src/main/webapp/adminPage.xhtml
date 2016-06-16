@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>MyOnlineBanking AdminPage</title>
+</h:head>
+<body>
+	<h2>Administrator</h2>
+	<ul>
+		<li><a href="#users">Users</a></li>
+		<li><a href="#importusers">Import users</a></li>
+	</ul>
+	<br />
+	<div id="users">
+		<h:dataTable value="#{adminPage.users}" var="user">
+			<h:column>
+				<f:facet name="header">ID</f:facet>#{user.id}
+				</h:column>
+			<h:column>
+				<f:facet name="header">Name</f:facet>#{user.name}
+				</h:column>
+			<h:column>
+				<f:facet name="header">Cluster ID</f:facet>#{user.clusterId}
+				</h:column>
+			<h:column>
+				<f:facet name="header">Cluster Name</f:facet>
+					#{user.clusterName}
+				</h:column>
+		</h:dataTable>
+	</div>
+	<br />
+	<div id="importusers">
+		<p>Select a Cluster XML file from your local file system:</p>
+		<h:form enctype="multipart/form-data">
+			<p:fileUpload fileUploadListener="#{adminPage.importUsers}" mode="advanced" oncomplete="javascript:location.reload(true)" dragDropSupport="false"
+           auto="true" allowTypes="/(\.|\/)(xml)$/" />
+		</h:form>
+		<p id="messages">#{adminPage.message}</p>
+	</div>
+</body>
+</html>

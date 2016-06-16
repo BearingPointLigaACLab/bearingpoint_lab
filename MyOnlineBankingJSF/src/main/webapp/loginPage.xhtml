@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html">
+   <h:head>
+      <title>MyOnlineBanking LoginPage</title>
+   </h:head>
+   <body>
+		<h1>Login</h1>
+		<h:form>
+			Username:
+			<h:inputText id="username" value="#{loginPage.user}"/>
+			<br/>
+			Password:
+			<h:inputSecret id="password" value="#{loginPage.password}"/>
+			<br/>
+			<h:commandButton submit="true" value="Login" action="#{loginPage.getNextPage}" />
+			<p>#{loginPage.message}</p>
+			</h:form>
+   </body>
+</html>

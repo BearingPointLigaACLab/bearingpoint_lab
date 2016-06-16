@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xmlns="http://java.sun.com/xml/ns/javaee" 
-   xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
    http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-   id="WebApp_ID" version="2.5">
+	id="WebApp_ID" version="2.5">
 	<welcome-file-list>
-		<welcome-file>Login.xhtml</welcome-file>
+		<welcome-file>adminPage.xhtml</welcome-file>
 	</welcome-file-list>
-   <!-- 
-      FacesServlet is main servlet responsible to handle all request. 
-      It acts as central controller.
-      This servlet initializes the JSF components before the JSP is displayed.
-   -->
-   <servlet>
+	<!-- FacesServlet is main servlet responsible to handle all request. It 
+		acts as central controller. This servlet initializes the JSF components before 
+		the JSP is displayed. -->
+	<servlet>
 		<servlet-name>Faces Servlet</servlet-name>
 		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
@@ -21,7 +18,7 @@
 	<servlet-mapping>
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>/faces/*</url-pattern>
-	</servlet-mapping>   
+	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>*.jsf</url-pattern>
@@ -34,4 +31,12 @@
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>*.xhtml</url-pattern>
 	</servlet-mapping>
+		<filter>
+		<filter-name>PrimeFaces FileUpload Filter</filter-name>
+		<filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>PrimeFaces FileUpload Filter</filter-name>
+		<servlet-name>Faces Servlet</servlet-name>
+	</filter-mapping>
 </web-app>
