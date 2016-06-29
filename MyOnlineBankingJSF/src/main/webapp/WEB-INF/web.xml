@@ -5,7 +5,7 @@
    http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	id="WebApp_ID" version="2.5">
 	<welcome-file-list>
-		<welcome-file>adminPage.xhtml</welcome-file>
+		<welcome-file>loginPage.xhtml</welcome-file>
 	</welcome-file-list>
 	<!-- FacesServlet is main servlet responsible to handle all request. It 
 		acts as central controller. This servlet initializes the JSF components before 

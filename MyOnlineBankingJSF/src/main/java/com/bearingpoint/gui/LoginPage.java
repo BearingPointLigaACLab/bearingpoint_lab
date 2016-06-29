@@ -1,7 +1,11 @@
 package com.bearingpoint.gui;
 
+import java.util.Map;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 
 import com.bearingpoint.dbutils.DBUtils;
 
@@ -47,6 +51,9 @@ public class LoginPage {
 			if (DBUtils.isAdminUser(user, password)) {
 				nextPage = "adminPage";
 			} else {
+				ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+				Map<String, Object> sessionMap = externalContext.getSessionMap();
+				sessionMap.put("user", user);
 				nextPage = "homePage";
 			}
 			message = null;
