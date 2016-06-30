@@ -11,6 +11,7 @@
 </h:head>
 <body>
 	<h2>Welcome #{loginPage.user}!</h2>
+	<p>Selected account: #{homePage.accountID}</p>
 	<p:tabView>
 		<p:tab title="General">
 			<h:form>
@@ -37,36 +38,50 @@
 			</h:form>
 		</p:tab>
 		<p:tab title="New Transaction">
-				<p>New Transaction</p>
-				<p>From account: #{homePage.accountID}</p>
-				<h:form>
-					<table>
-						<tr>
-							<td>Total</td>
-							<td>#{homePage.accountAmount}</td>
-							<td>#{homePage.accountCurrency}</td>
-						</tr>
-						<tr>
-							<td>Amount</td>
-							<td><h:inputText id="amount" value="#{homePage.amount}" /></td>
-							<td>#{homePage.accountCurrency}</td>
-						</tr>
-						<tr>
-							<td>To account:</td>
-							<td><h:inputText id="destination"
-									value="#{homePage.destination}" /></td>
-						</tr>
-						<tr>
-							<td>Name:</td>
-							<td><h:inputText id="name" value="#{homePage.name}" /></td>
-						</tr>
-					</table>
-					<h:commandButton submit="true" value="Submit" action="#{homePage.submitTransaction}" />
-				</h:form>
+			<p>New Transaction</p>
+			<p>From account: #{homePage.accountID}</p>
+			<h:form>
+				<table>
+					<tr>
+						<td>Total</td>
+						<td>#{homePage.accountAmount}</td>
+						<td>#{homePage.accountCurrency}</td>
+					</tr>
+					<tr>
+						<td>Amount</td>
+						<td><h:inputText id="amount" value="#{homePage.amount}" /></td>
+						<td>#{homePage.accountCurrency}</td>
+					</tr>
+					<tr>
+						<td>To account:</td>
+						<td><h:inputText id="destination"
+								value="#{homePage.destination}" /></td>
+					</tr>
+					<tr>
+						<td>Name:</td>
+						<td><h:inputText id="name" value="#{homePage.name}" /></td>
+					</tr>
+				</table>
+				<h:commandButton submit="true" value="Submit"
+					action="#{homePage.submitTransaction}" />
+			</h:form>
 		</p:tab>
 		<p:tab title="Transaction Report">
-		TODO
-	</p:tab>
+			<h:dataTable value="#{homePage.transactions}" var="transaction">
+				<h:column>
+					<f:facet name="header">ID</f:facet>#{transaction.id}
+				</h:column>
+				<h:column>
+					<f:facet name="header">To</f:facet>#{transaction.destination}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Date</f:facet>#{transaction.date}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Amount</f:facet>#{transaction.amount} #{homePage.accountCurrency}
+				</h:column>
+			</h:dataTable>
+		</p:tab>
 	</p:tabView>
 </body>
 </html>

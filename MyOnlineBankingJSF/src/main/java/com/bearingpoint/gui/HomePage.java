@@ -10,13 +10,11 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 import com.bearingpoint.dbutils.DBUtils;
-import com.bearingpoint.userimport.Transaction;
+import com.bearingpoint.userimport.XMLClusterFactory;
 
 @ManagedBean(name = "homePage", eager = true)
 @ViewScoped
 public class HomePage {
-
-	private Account[] accounts = DBUtils.getDBAccounts(getUser());
 
 	private String accountID;
 	private String accountAmount;
@@ -25,6 +23,9 @@ public class HomePage {
 	private String amount;
 	private String destination;
 	private String name;
+
+	private Account[] accounts = DBUtils.getDBAccounts(getUser());
+	private Transaction[] transactions = DBUtils.getDBTransactions(accountID);
 
 	public String getUser() {
 		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
@@ -38,6 +39,14 @@ public class HomePage {
 
 	public void setAccounts(Account[] accounts) {
 		this.accounts = accounts;
+	}
+
+	public Transaction[] getTransactions() {
+		return transactions;
+	}
+
+	public void setTransactions(Transaction[] transactions) {
+		this.transactions = transactions;
 	}
 
 	public String getAccountID() {
@@ -92,14 +101,12 @@ public class HomePage {
 		this.accountID = (String) event.getComponent().getAttributes().get("accountID");
 		this.accountAmount = (String) event.getComponent().getAttributes().get("accountAmount");
 		this.accountCurrency = (String) event.getComponent().getAttributes().get("accountCurrency");
+
+		transactions = DBUtils.getDBTransactions(accountID);
 	}
 
 	public void submitTransaction() {
-		Transaction t = new Transaction();
-		t.setAmount(Double.parseDouble(amount));
-		t.setDate(Calendar.getInstance().getTime());
-		t.setSource(accountID);
-		t.setDestination(destination);
+		Transaction t = new Transaction(null, accountID, destination, XMLClusterFactory.DATE_FORMAT.format(Calendar.getInstance().getTime()), amount);
 		DBUtils.addDBTransaction(t);
 
 		// clear
@@ -146,5 +153,63 @@ public class HomePage {
 		public void setCurrency(String currency) {
 			this.currency = currency;
 		}
+	}
+
+	public static class Transaction {
+		String id;
+		String source;
+		String destination;
+		String date;
+		String amount;
+
+		public Transaction(String id, String source, String destination, String date, String amount) {
+			super();
+			this.id = id;
+			this.source = source;
+			this.destination = destination;
+			this.date = date;
+			this.amount = amount;
+		}
+
+		public String getId() {
+			return id;
+		}
+
+		public void setId(String id) {
+			this.id = id;
+		}
+
+		public String getSource() {
+			return source;
+		}
+
+		public void setSource(String source) {
+			this.source = source;
+		}
+
+		public String getDestination() {
+			return destination;
+		}
+
+		public void setDestination(String destination) {
+			this.destination = destination;
+		}
+
+		public String getDate() {
+			return date;
+		}
+
+		public void setDate(String date) {
+			this.date = date;
+		}
+
+		public String getAmount() {
+			return amount;
+		}
+
+		public void setAmount(String amount) {
+			this.amount = amount;
+		}
+
 	}
 }

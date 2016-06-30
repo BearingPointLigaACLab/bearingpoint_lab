@@ -1,9 +1,9 @@
 package com.bearingpoint.dbutils;
 
 import com.bearingpoint.gui.AdminPage.User;
+import com.bearingpoint.gui.HomePage;
 import com.bearingpoint.gui.HomePage.Account;
 import com.bearingpoint.userimport.Cluster;
-import com.bearingpoint.userimport.Transaction;
 
 public class DBUtils {
 
@@ -21,7 +21,7 @@ public class DBUtils {
 	 * 
 	 * @param t
 	 */
-	public static void addDBTransaction(Transaction t) {
+	public static void addDBTransaction(HomePage.Transaction t) {
 		// TODO
 	}
 
@@ -43,6 +43,21 @@ public class DBUtils {
 	public static Account[] getDBAccounts(String user) {
 		Account[] accounts = {new Account("id_a1", "1000", "RON"), new Account("id_a2", "2000", "EUR")};
 		return accounts;
+	}
+
+	/**
+	 * Gets all transactions for the specified account ID from the DB
+	 * 
+	 * @param accountID
+	 * @return
+	 */
+	public static HomePage.Transaction[] getDBTransactions(String accountID) {
+		if (accountID == null) {
+			return null;
+		}
+		HomePage.Transaction[] transactions = {new HomePage.Transaction("id_t1", "id_a1", "id_a2", "22.03.2016", "1000"),
+				new HomePage.Transaction("id_t2", "id_a2", "id_a1", "22.04.2016", "3000")};
+		return transactions;
 	}
 
 	/**
