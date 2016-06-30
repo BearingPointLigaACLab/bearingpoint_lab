@@ -11,98 +11,62 @@
 </h:head>
 <body>
 	<h2>Welcome #{loginPage.user}!</h2>
-	<ul>
-		<li><a href="#general">General</a></li>
-		<li><a href="#new_transaction">New Transaction</a></li>
-		<li><a href="#transaction_report">Transaction Report</a></li>
-	</ul>
-	<br />
-	<div id="general">
-		<h:form>
-			<h:dataTable value="#{homePage.accounts}" var="account">
-				<h:column>
-					<f:facet name="header">Account</f:facet>#{account.id}
+	<p:tabView>
+		<p:tab title="General">
+			<h:form>
+				<h:dataTable value="#{homePage.accounts}" var="account">
+					<h:column>
+						<f:facet name="header">Account</f:facet>#{account.id}
 				</h:column>
-				<h:column>
-					<f:facet name="header">Total</f:facet>#{account.amount}
+					<h:column>
+						<f:facet name="header">Total</f:facet>#{account.amount}
 				</h:column>
-				<h:column>
-					<f:facet name="header">Currency</f:facet>#{account.currency}
+					<h:column>
+						<f:facet name="header">Currency</f:facet>#{account.currency}
 				</h:column>
-				<h:column>
-					<f:facet name="header" />
-					<h:commandButton submit="true" value="New Transaction"
-						actionListener="#{homePage.setSourceAccount}">
-						<f:attribute name="accountID" value="#{account.id}" />
-						<f:attribute name="accountAmount" value="#{account.amount}" />
-						<f:attribute name="accountCurrency" value="#{account.currency}" />
-					</h:commandButton>
-				</h:column>
-			</h:dataTable>
-		</h:form>
-	</div>
-	<br />
-	<div id="new_transaction">
-		<p>New Transaction</p>
-		<p>From account: #{homePage.accountID}</p>
-		<h:form>
-			<table>
-				<tr>
-					<td>Total</td>
-					<td>#{homePage.accountAmount}</td>
-					<td>#{homePage.accountCurrency}</td>
-				</tr>
-				<tr>
-					<td>Amount</td>
-					<td><h:inputText id="amount" value="#{homePage.amount}" /></td>
-					<td>#{homePage.accountCurrency}</td>
-				</tr>
-				<tr>
-					<td>To account:</td>
-					<td><h:inputText id="destination"
-							value="#{homePage.destination}" /></td>
-				</tr>
-				<tr>
-					<td>Name:</td>
-					<td><h:inputText id="name" value="#{homePage.name}" /></td>
-				</tr>
-			</table>
-			<h:commandButton submit="true" value="Submit" />
-		</h:form>
-	</div>
-	<div id="new_transaction_confirmation">
-		<p>New Transaction > Confirmation</p>
-		<p>From account: #{homePage.accountID}</p>
-		<table>
-			<tr>
-				<td>Total</td>
-				<td>#{homePage.accountAmount}</td>
-				<td>#{homePage.accountCurrency}</td>
-			</tr>
-			<tr>
-				<td>Amount</td>
-				<td>#{homePage.amount}</td>
-				<td>#{homePage.accountCurrency}</td>
-			</tr>
-			<tr>
-				<td>To account:</td>
-				<td>#{homePage.destination}</td>
-			</tr>
-			<tr>
-				<td>Name:</td>
-				<td>#{homePage.name}</td>
-			</tr>
-		</table>
-		<p>Is the entered information correct?</p>
-		<h:form>
-			<table>
-				<tr>
-					<td><h:commandButton value="Submit" submit="true"
-							action="#{homePage.submitTransaction}" /></td>
-					<td><h:commandButton value="Return" submit="true" /></td>
-				</tr>
-			</table>
-		</h:form>
-	</div>
+					<h:column>
+						<f:facet name="header" />
+						<h:commandButton submit="true" value="Select"
+							actionListener="#{homePage.setSourceAccount}">
+							<f:attribute name="accountID" value="#{account.id}" />
+							<f:attribute name="accountAmount" value="#{account.amount}" />
+							<f:attribute name="accountCurrency" value="#{account.currency}" />
+						</h:commandButton>
+					</h:column>
+				</h:dataTable>
+			</h:form>
+		</p:tab>
+		<p:tab title="New Transaction">
+				<p>New Transaction</p>
+				<p>From account: #{homePage.accountID}</p>
+				<h:form>
+					<table>
+						<tr>
+							<td>Total</td>
+							<td>#{homePage.accountAmount}</td>
+							<td>#{homePage.accountCurrency}</td>
+						</tr>
+						<tr>
+							<td>Amount</td>
+							<td><h:inputText id="amount" value="#{homePage.amount}" /></td>
+							<td>#{homePage.accountCurrency}</td>
+						</tr>
+						<tr>
+							<td>To account:</td>
+							<td><h:inputText id="destination"
+									value="#{homePage.destination}" /></td>
+						</tr>
+						<tr>
+							<td>Name:</td>
+							<td><h:inputText id="name" value="#{homePage.name}" /></td>
+						</tr>
+					</table>
+					<h:commandButton submit="true" value="Submit" action="#{homePage.submitTransaction}" />
+				</h:form>
+		</p:tab>
+		<p:tab title="Transaction Report">
+		TODO
+	</p:tab>
+	</p:tabView>
 </body>
 </html>
