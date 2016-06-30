@@ -1,4 +1,4 @@
-package com.bearingpoint.MyOnlineBankingDatabase;
+package com.bearingpoint.myonlinebankingdatabase;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

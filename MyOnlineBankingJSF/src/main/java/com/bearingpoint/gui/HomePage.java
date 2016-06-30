@@ -1,5 +1,6 @@
 package com.bearingpoint.gui;
 
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.Map;
 
@@ -8,6 +9,9 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+import javax.servlet.http.HttpServletRequest;
+
+import org.primefaces.event.TabChangeEvent;
 
 import com.bearingpoint.dbutils.DBUtils;
 import com.bearingpoint.userimport.XMLClusterFactory;
@@ -106,18 +110,23 @@ public class HomePage {
 	}
 
 	public void submitTransaction() {
-		Transaction t = new Transaction(null, accountID, destination, XMLClusterFactory.DATE_FORMAT.format(Calendar.getInstance().getTime()), amount);
-		DBUtils.addDBTransaction(t);
 
-		// clear
-		this.accountID = null;
-		this.accountAmount = null;
-		this.accountCurrency = null;
-		this.destination = null;
-		this.name = null;
-		this.amount = null;
+		if (accountID != null) {
+
+			Transaction t = new Transaction(null, accountID, destination,
+					XMLClusterFactory.DATE_FORMAT.format(Calendar.getInstance().getTime()), amount);
+			DBUtils.addDBTransaction(t);
+
+			// clear
+			this.accountID = null;
+			this.accountAmount = null;
+			this.accountCurrency = null;
+			this.destination = null;
+			this.name = null;
+			this.amount = null;
+		}
 	}
-
+	
 	public static class Account {
 		String id;
 		String amount;

@@ -47,6 +47,10 @@ public class LoginPage {
 	 */
 	public String getNextPage() {
 		String nextPage = "loginPage";
+		
+		user = "cristian.gaidos";
+		password = "5678";
+		
 		if (DBUtils.isValidUser(user, password)) {
 			if (DBUtils.isAdminUser(user, password)) {
 				nextPage = "adminPage";

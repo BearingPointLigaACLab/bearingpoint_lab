@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.bearingpoint.MyOnlineBankingDatabase;
+package com.bearingpoint.myonlinebankingdatabase;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -22,7 +22,7 @@ public class ConnectionContext {
 	public static final Connection getDBConnection() {
 		
 		try {
-			if(connection == null) {
+			if(connection == null || connection.isClosed()) {
 				
 				/* For MySQL we can use the following driver init
 				 Class.forName("com.mysql.jdbc.Driver");
